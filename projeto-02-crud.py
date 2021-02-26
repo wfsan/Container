@@ -113,9 +113,9 @@ def read_all_product():
 def get_product(id:int):
     return get_by_product(id)
 
-def get_all_products():
-    product = session.query(APIProject).all()
-    return jsonify(APIProject=[prod.serialize for prod in product])
+# def get_all_products():
+#     product = session.query(APIProject).all()
+#     return jsonify(APIProject=[prod.serialize for prod in product])
 
 def get_by_product(id:int):
     product = session.query(APIProject).filter(APIProject.id == id)
@@ -130,9 +130,9 @@ def get_by_product(id:int):
 def update(id:int):
 
     if request.method == 'PUT':
-        name = request.json.get('name') 
-        description = request.json.get('description')
-        price = request.json.get('price')
+        name = request.json.get("name") 
+        description = request.json.get("description")
+        price = request.json.get("price")
 
         return update_product(id, name, description, price)
 
@@ -145,9 +145,9 @@ def update_product(id:int, name:str, description:str, price:float):
     session.commit()
 
     return jsonify({
-        'name': name,
-        'description': description,
-        'price': price
+        "name": name,
+        "description": description,
+        "price": price
     })
     
 
